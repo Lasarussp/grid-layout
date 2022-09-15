@@ -1,0 +1,238 @@
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #ecf0f1;
+}
+
+.wrapper {
+    max-width: 75rem;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+/* Group */
+.group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 12.5rem);
+    gap: .5rem;
+}
+
+/* Group Layout */
+.group__item--1 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+}
+
+.group__item--2 {
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+}
+
+.group__item--3 {
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+}
+
+.group__item--4 {
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 3;
+}
+
+.group__item--5 {
+    grid-column: 1 / span 2;
+    grid-row: 3 / span 2;
+}
+
+.group__item--6 {
+    grid-column: 3 / span 1;
+    grid-row: 4 / span 1;
+}
+.group__item--7 {
+    grid-column: 0 / span 1;
+    grid-row: 1 / span 0;
+}
+.group__item--8 {
+    grid-column: 0 / span 1;
+    grid-row: 1 / span 0;
+}
+.group__item--9 {
+    grid-column: 0 / span 1;
+    grid-row: 1 / span 0;
+}
+.group__item--10 {
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 0;
+}
+
+
+/* Group Link */
+.group__link {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Group Link Overlay */
+.group__overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.4);
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s;
+}
+
+.group__link:hover .group__overlay {
+    opacity: 1;
+}
+
+/* Group Overlay Text */
+.group__overlay span {
+    position: relative;
+    line-height: 3rem;
+}
+
+.group__overlay span:before,
+.group__overlay span:after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0;
+    background: #fff;
+    transition: width .3s ease-out .2s;
+}
+
+.group__overlay span:before {
+    top: 0;
+    left: 0;
+}
+
+.group__overlay span:after {
+    bottom: 0;
+    right: 0;
+}
+
+.group__link:hover .group__overlay span:before,
+.group__link:hover .group__overlay span:after {
+    width: 100%;    
+}
+
+
+/* Group Image */
+.group__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scale(1.05);
+    transition: 
+        transform .5s,
+        filter .5s;
+}
+
+.group__link:hover .group__image {
+    transform: scale(1.2);
+    filter: blur(2px);
+}
+
+@media screen and (max-width: 60rem) {
+    .wrapper {
+        padding: 1rem;
+    }
+
+    .group {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Group Layout */
+    .group__item--1 {
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+    }
+
+    .group__item--2 {
+        grid-column: 1 / span 1;
+        grid-row: 2 / span 1;
+    }
+
+    .group__item--3 {
+        grid-column: 2 / span 1;
+        grid-row: 1 / span 2;
+    }
+
+    .group__item--4 {
+        grid-column: 1 / span 1;
+        grid-row: 3 / span 2;
+    }
+
+    .group__item--5 {
+        grid-column: 2 / span 1;
+        grid-row: 3 / span 1;
+    }
+
+    .group__item--6 {
+        grid-column: 2 / span 1;
+        grid-row: 4 / span 1;
+    }
+    .group__item--7 {
+        grid-column: 0 / span 1;
+        grid-row: 1 / span 0;
+    }
+    .group__item--8 {
+        grid-column: 0 / span 1;
+        grid-row: 1 / span 0;
+    }
+    .group__item--9 {
+        grid-column: 0 / span 1;
+        grid-row: 1 / span 0;
+    }
+    .group__item--10 {
+        grid-column: 0 / span 1;
+        grid-row: 1 / span 0;
+    }
+
+    .group__overlay {
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (max-width: 35rem) {
+    .group {
+        display: block;
+    }
+
+    .group__item {
+        margin: .5rem;
+    }
+
+    .group__link {
+        height: 80vw;
+    }
+
+    .group__overlay {
+        font-size: 1rem;
+    }
+}
